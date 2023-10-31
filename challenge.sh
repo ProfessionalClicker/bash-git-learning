@@ -8,16 +8,16 @@ suffix=0
 largest=0
 #for each file in the current directory..
 for file in *; do
-		#check if the file exists, otherwise skip this iteration
-		[ -f "$file" ] || continue
-		#get suffix from filename
-		#this strips only the inputted name from the front of the filename, leaving us with just the suffix number
-		suffix="${file##*$name}"
-		#compare the suffix to the largest number we have seen so far
-		if (($suffix>$largest));then
-			#if it was larger, overwrite largest with the new, bigger number
-			largest=$suffix
-		fi
+	#check if the file exists, otherwise skip this iteration
+	[ -f "$file" ] || continue
+	#get suffix from filename
+	#this strips only the inputted name from the front of the filename, leaving us with just the suffix number
+	suffix="${file##*$name}"
+	#compare the suffix to the largest number we have seen so far
+	if (($suffix>$largest));then
+		#if it was larger, overwrite largest with the new, bigger number
+		largest=$suffix
+	fi
 done
 
 #setup the range of numbers for the loop
@@ -31,7 +31,6 @@ for (( i = $largest; i <= $end; i++ ));do
 done
 echo "Script complete"
 #sources that helped me
-
 #get suffix from filename
 	#https://tldp.org/LDP/abs/html/refcards.html#AEN22664
 	#https://unix.stackexchange.com/questions/461058/what-is-the-concept-of-shortest-sub-string-match-in-unix-shell
