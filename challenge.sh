@@ -1,4 +1,5 @@
 #!/bin/bash
+#prompt the user for their name
 read -p "What is your name? " name 
 #define variables
 #suffix will be the suffix from existing files like: matt25 would be 25
