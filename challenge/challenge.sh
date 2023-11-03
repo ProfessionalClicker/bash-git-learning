@@ -6,10 +6,16 @@ read -p "What is your name? " name
 #largest will save the largest suffix value for later when we create more files
 suffix=0
 largest=0
+
 #for each file in the current directory..
 for file in *; do
 	#check if the file exists, otherwise skip this iteration
 	[ -f "$file" ] || continue
+	#if the file has a period, ignore it
+	if [[ $file =~ \. ]];then
+		echo "match"
+		continue
+	fi
 	#get suffix from filename
 	#this strips only the inputted name from the front of the filename, leaving us with just the suffix number
 	suffix="${file##*$name}"
@@ -29,7 +35,9 @@ for (( i = $largest; i <= $end; i++ ));do
 	filename="$name$i"
 	touch $filename
 done
+
 echo "Script complete"
+
 #sources that helped me
 #get suffix from filename
 	#https://tldp.org/LDP/abs/html/refcards.html#AEN22664
